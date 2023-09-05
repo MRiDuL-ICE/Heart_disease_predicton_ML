@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Heart Disease Predictor</title>
+	<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<link href="/static/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Website Title -->
+	<div class="container">
+		<h2 class='container-heading'><span class="heading_font" style="font-size: 50px;">Heart Disease Predictor</span></h2>
+		<div class='description'>
+			<p style="font-size: 35px; margin-top: 10px;">A Machine Learning Web Application that predicits chances of having heart Disease or not, Built with Flask</p style="text-size: 20px"><br>
+				<p style="font-size: 25px;">(Note:This model is 80.67% accurate)</p>
+		</div>
+	</div>
+
+	<!-- Result -->
+	<div class="results">
+		{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Oops! You have Chances of Heart Disease.</span></h1>
+				
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Great! You DON'T chances have Heart Disease.</span></h1>
+				
+			{% endif %}
+	</div>
+
+	<div class="footer">
+		<p style="font-size: 25px; color: white;">Developed By MRiDuL</p>
+	  </div>
+
+
+</body>
+
+</html>
