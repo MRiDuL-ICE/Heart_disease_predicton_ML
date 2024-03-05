@@ -30,9 +30,12 @@ def predict():
         slope = request.form.get('slope')
         ca = int(request.form['ca'])
         thal = request.form.get('thal')
+        smoke = request.form.get('smoke')
+        alco = request.form.get('alco')
         
         
-        data = np.array([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
+        
+        data = np.array([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal,smoke,alco]])
         my_prediction = model.predict(data)
         
         return render_template('result.html', prediction=my_prediction)

@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 # loading and reading the dataset
 
-heart = pd.read_csv("heart_cleveland_upload.csv")
+heart = pd.read_csv("resampled_dataset.csv")
 
 # creating a copy of dataset so that will not affect our original dataset.
 heart_df = heart.copy()
@@ -21,6 +21,9 @@ heart_df = heart.copy()
 # Renaming some of the columns 
 heart_df = heart_df.rename(columns={'condition':'target'})
 print(heart_df.head())
+
+print(heart_df.info())
+print('')
 
 # model building 
 

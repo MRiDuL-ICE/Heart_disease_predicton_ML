@@ -1,0 +1,30 @@
+import pandas as pd
+from sklearn.utils import resample
+
+# Load the dataset
+df = pd.read_csv("heart_cleveland_upload.csv")
+
+# Separate features and target variable
+X = df.drop("condition", axis=1)
+y = df["condition"]
+
+# Identify minority class samples
+minority_samples = df[df["condition"] == 1]
+
+# Define the desired number of augmented samples
+desired_samples = 2000
+
+# Perform oversampling by duplicating minority class samples
+augmented_samples = resample(minority_samples,
+                             replace=True,
+                             n_samples=desired_samples,
+                             random_state=42)
+
+# Combine original dataset with augmented samples
+augmented_dataset = pd.concat([df, augmented_samples])
+
+# Optional: Shuffle the augmented dataset
+augmented_dataset = augmented_dataset.sample(frac=1, random_state=42)
+
+# Save the augmented dataset to a new CSV file
+augmented_dataset.to_csv("heart_cleveland_augmented.csv", index=False)
